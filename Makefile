@@ -10,7 +10,7 @@ up: ## run service
 down: ## stop service
 	docker compose down
 
-logs: ## check logs
+log: ## check logs
 	docker compose logs -f --tail 100 --since 1h
 
 rsync: ## rsync to server
