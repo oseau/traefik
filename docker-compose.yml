@@ -12,6 +12,16 @@ services:
       - tunnels-traefik
       - traefik-containers
 
+  tunnel:
+    image: cloudflare/cloudflared
+    restart: unless-stopped
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+      - TUNNEL_LOGLEVEL=warn
+    networks:
+      - tunnels-traefik
+
 networks:
   tunnels-traefik:
     external: true
